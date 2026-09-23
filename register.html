@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký nhận thông tin | Blakletterpress</title>
+<meta name="description" content="Form đăng ký nhận bản tin định kỳ của Blakletterpress: thông tin tài khoản, thông tin cá nhân và tùy chọn nhận tin.">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Bỏ qua tới nội dung chính</a>
+<div class="page">
+  <header class="site-header">
+    <div class="site-motto">
+      <a href="index.html" class="sitename">Blakletterpress</a>
+      <p class="site-tagline">Your online source of trusted news</p>
+    </div>
+    <div class="site-logo"><a href="index.html" aria-label="Blakletterpress trang chủ">BLP</a></div>
+    <div class="site-search">
+      <form action="#" method="get" role="search">
+        <label for="q" class="skip-link">Tìm kiếm</label>
+        <input type="search" id="q" name="q" placeholder="Enter search query" class="txtfield">
+        <input type="submit" value="Search" class="btn">
+      </form>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main id="main-content" class="content">
+      <h1>Đăng ký nhận thông tin</h1>
+      <p>Điền thông tin bên dưới để nhận bản tin định kỳ. Các trường có dấu <span class="required">*</span> là bắt buộc.</p>
+
+      <form class="register" action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Thông tin tài khoản</legend>
+
+          <label for="fullname">Họ và tên <span class="required">*</span></label>
+          <input type="text" id="fullname" name="fullname" placeholder="Nguyễn Văn A" required autocomplete="name">
+
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="ban@example.com" required autocomplete="email">
+
+          <label for="password">Mật khẩu <span class="required">*</span> <span class="hint">(tối thiểu 8 ký tự)</span></label>
+          <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password">
+
+          <label for="phone">Số điện thoại <span class="required">*</span> <span class="hint">(10 số, bắt đầu bằng 0)</span></label>
+          <input type="tel" id="phone" name="phone" required pattern="0[0-9]{9}" title="Số điện thoại gồm 10 chữ số, bắt đầu bằng 0" placeholder="09xxxxxxxx" autocomplete="tel">
+        </fieldset>
+
+        <fieldset>
+          <legend>Thông tin cá nhân</legend>
+
+          <label for="dob">Ngày sinh <span class="required">*</span></label>
+          <input type="date" id="dob" name="dob" required>
+
+          <label for="age">Độ tuổi <span class="required">*</span></label>
+          <input type="number" id="age" name="age" required min="1" max="120" placeholder="20">
+
+          <p style="padding:0;margin:12px 0 4px;font-size:14px;">Giới tính <span class="required">*</span></p>
+          <label class="inline"><input type="radio" name="gender" value="nam" required> Nam</label>
+          <label class="inline"><input type="radio" name="gender" value="nu"> Nữ</label>
+          <label class="inline"><input type="radio" name="gender" value="khac"> Khác</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Tùy chọn nhận tin</legend>
+
+          <p style="padding:0;margin:0 0 4px;font-size:14px;">Chủ đề quan tâm</p>
+          <label class="inline"><input type="checkbox" name="topics" value="tintuc"> Tin tức</label>
+          <label class="inline"><input type="checkbox" name="topics" value="blog"> Blog</label>
+          <label class="inline"><input type="checkbox" name="topics" value="sukien"> Sự kiện</label>
+
+          <label for="region">Khu vực</label>
+          <select id="region" name="region">
+            <option value="">-- Chọn khu vực --</option>
+            <option value="hanoi">Hà Nội</option>
+            <option value="danang">Đà Nẵng</option>
+            <option value="hcm">TP. Hồ Chí Minh</option>
+            <option value="khac">Khu vực khác</option>
+          </select>
+
+          <label for="message">Lời nhắn</label>
+          <textarea id="message" name="message" placeholder="Bạn muốn nhận nội dung gì?"></textarea>
+
+          <div style="margin-top:12px;">
+            <label class="inline"><input type="checkbox" id="agree" name="agree" required> Tôi đồng ý với điều khoản sử dụng <span class="required">*</span></label>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Đăng ký</button>
+          <button type="reset" class="btn">Nhập lại</button>
+        </div>
+      </form>
+    </main>
+
+    <aside class="sidebar" aria-label="Thanh bên">
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index_new.html">About</a></li>
+          <li><a href="media.html">News</a></li>
+          <li><a href="register.html" aria-current="page">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="side-box">
+        <h2>Connect with us:</h2>
+        <div class="social"><a class="tw" href="#" aria-label="Twitter">🐦</a><a class="fb" href="#" aria-label="Facebook">📘</a><a class="gp" href="#" aria-label="Google Plus">📕</a></div>
+      </div>
+      <div class="side-box posts">
+        <h2>Placeholder</h2>
+        <ul>
+          <li><h3>Title Sample One</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula vel velit varius</p><a href="media.html" class="more">Read more</a></li>
+          <li><h3>Title Sample One</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula vel velit varius</p><a href="media.html" class="more">Read more</a></li>
+        </ul>
+        <a href="media.html" class="btn2">View More</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <ul class="footer-grid">
+      <li><div class="foot-icon">⌂</div><p>This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p></li>
+      <li><div class="foot-icon">🔔</div><p>This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p></li>
+      <li><div class="foot-icon">🌐</div><p>This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p></li>
+      <li><div class="foot-icon">✎</div><p>This website template has been designed by Free Website Templates for you, for free. You can replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p></li>
+    </ul>
+    <p class="copyright">© Copyright © 2011. Company name all rights reserved</p>
+  </footer>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
