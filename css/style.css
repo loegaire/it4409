@@ -74,7 +74,7 @@ body {
 #posts h2, .side-box.posts h2 { background: #be841f; color: #fff8e0; }
 #posts ul { list-style: none; margin: 0; padding: 0 6px; }
 .side-box ul { list-style: none; margin: 0; padding: 0 6px; }
-.side-box h3, #posts h5 { color: #fff; font-size: 12px; margin: 8px 0 4px; }
+.side-box h3, #posts h3, #posts h5 { color: #fff; font-size: 12px; margin: 8px 0 4px; }
 .side-box p, #posts p { color: #7a4d06; font-size: 12px; line-height: 1.6; }
 a.more { color: #199209; font-size: 12px; }
 .social { text-align: center; padding: 6px 0 12px; display: flex; justify-content: center; gap: 22px; }
@@ -103,6 +103,10 @@ form.register select, form.register textarea {
   width: 260px; max-width: 100%; padding: 5px 6px; border: 1px solid #999; font-family: Georgia, serif;
 }
 form.register textarea { width: 320px; height: 80px; }
+form.register .sub-group { margin: 12px 0 4px; padding: 10px 12px; }
+form.register .sub-group legend { font-size: 14px; }
+form.register input:focus-visible, form.register select:focus-visible,
+form.register textarea:focus-visible { outline: 3px solid #0f7a09; outline-offset: 1px; }
 form.register .inline { display: inline-block; margin-right: 12px; font-weight: normal; }
 form.register .inline input { width: auto; }
 .hint { font-size: 12px; color: #777; }

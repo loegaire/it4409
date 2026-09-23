@@ -14,6 +14,6 @@ python3 -m http.server 8000
 ```
 
 ## Deploy (GitHub Pages)
-Repo: https://github.com/loegaire/web-blakletterpress
-Live: https://loegaire.github.io/web-blakletterpress/
-- Push main → Actions `deploy-pages` tự deploy.
+Repo: https://github.com/loegaire/it4409
+Live: https://loegaire.github.io/it4409/
+- Push main → Pages (legacy) tự deploy.
