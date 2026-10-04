@@ -6,6 +6,127 @@
 <title>Home | Blakletterpress</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232b0303'/%3E%3Ctext x='32' y='42' font-size='28' text-anchor='middle' fill='%23fed58e' font-family='Georgia,serif' font-weight='bold'%3EBLP%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<style>
+* { box-sizing: border-box; }
+body {
+  background: #fed58e;
+  background-image: linear-gradient(#f9cf87, #f7c06a);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 0;
+  color: #333;
+}
+#page, .page { width: 960px; max-width: 96%; margin: 0 auto; }
+#header, .site-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 18px 0 10px; border-bottom: 1px solid #d9a95c;
+  gap: 12px; flex-wrap: wrap;
+}
+#motto, .site-motto { font-size: 20px; color: #5a3a10; }
+#motto a.sitename, .site-motto .sitename {
+  font-family: "Old English Text MT", "UnifrakturCook", serif;
+  font-size: 22px; color: #4a2c0a; text-decoration: none;
+}
+.site-tagline, #motto p { font-size: 12px; font-style: italic; color: #7a5210; margin: 4px 0 0; }
+#logo, .site-logo {
+  font-family: "Old English Text MT", "UnifrakturCook", serif;
+  font-size: 64px; font-weight: bold; color: #250404; line-height: 1;
+  letter-spacing: 2px;
+}
+#logo a, .site-logo a { color: inherit; text-decoration: none; }
+#searchbar, .site-search { text-align: right; font-size: 12px; color: #7a5210; }
+#searchbar form, .site-search form { margin-top: 6px; }
+.txtfield, .site-search input[type="search"], .site-search input[type="text"] {
+  border: 1px solid #c9a86a; padding: 5px 6px; width: 170px;
+  font-style: italic; color: #888; font-family: Georgia, serif;
+}
+.btn {
+  background: linear-gradient(#3cb62b, #0f7a09);
+  color: #fff; border: 1px solid #0c5c07; border-radius: 3px;
+  padding: 5px 14px; font-weight: bold; cursor: pointer; font-family: Georgia, serif;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn2 {
+  display: block; background: linear-gradient(#37b624, #0e6e07);
+  color: #fdf6ea; font-size: 22px; font-weight: bold; text-align: center;
+  text-decoration: none; padding: 8px 0; border-radius: 6px;
+  border: 1px solid #0b5a06; text-shadow: -1px 1px 2px #0c3d08;
+  margin: 10px auto 6px; width: 200px;
+}
+#contents, .layout { display: flex; gap: 14px; align-items: flex-start; margin-top: 12px; }
+#main, .content { flex: 1; background: #fdf6ea; padding: 16px 22px 28px; min-height: 900px; box-shadow: 0 0 6px rgba(0,0,0,.15); }
+#sidebar, .sidebar { width: 235px; flex-shrink: 0; }
+#navigation ul, .site-nav ul { list-style: none; margin: 0; padding: 0; }
+#navigation li, .site-nav li { margin-bottom: 12px; }
+#navigation li a, .site-nav li a {
+  display: block; background: #2b0303; border: 2px solid #8a6a2f;
+  color: #fff; text-align: center; font-size: 26px; padding: 12px 0;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+  text-shadow: 0 2px 2px #000;
+}
+#navigation li.selected a, .site-nav li.active a, #navigation li a:hover, .site-nav li a:hover { background: #4a0a0a; }
+#navigation li a:focus-visible, .site-nav li a:focus-visible { outline: 3px solid #0f7a09; }
+.section, .side-box { background: #fef1bf; border: 1px solid #d9a95c; margin-bottom: 18px; padding: 6px; }
+.section h2, .side-box h2 {
+  background: #f0c27e; color: #7b4c1a; font-size: 18px; text-align: center;
+  margin: 0 0 10px; padding: 8px;
+}
+#posts, .side-box.posts { background: #f4c26b; }
+#posts h2, .side-box.posts h2 { background: #be841f; color: #fff8e0; }
+#posts ul { list-style: none; margin: 0; padding: 0 6px; }
+.side-box ul { list-style: none; margin: 0; padding: 0 6px; }
+.side-box h3, #posts h3, #posts h5 { color: #fff; font-size: 12px; margin: 8px 0 4px; }
+.side-box p, #posts p { color: #7a4d06; font-size: 12px; line-height: 1.6; }
+a.more { color: #199209; font-size: 12px; }
+.social { text-align: center; padding: 6px 0 12px; display: flex; justify-content: center; gap: 22px; }
+.social a { text-decoration: none; font-weight: bold; font-size: 18px; }
+.social .tw { color: #1da1f2; } .social .fb { color: #1877f2; } .social .gp { color: #db4437; }
+#main h1, .content h1 { color: #7e501c; font-size: 30px; font-weight: normal; margin: 0 0 12px; }
+.content h2 { font-size: 20px; text-align: center; margin: 26px 0 12px; }
+.content p { color: #444; font-size: 14px; line-height: 1.7; text-align: justify; }
+.meta { font-size: 12px; color: #888; margin-bottom: 14px; }
+figure { margin: 14px 0; }
+figure img, figure video { width: 100%; height: auto; display: block; border: 1px solid #ccc; }
+figcaption { font-size: 13px; text-align: center; color: #555; margin-top: 6px; }
+video, audio { width: 100%; max-width: 100%; }
+iframe.map { width: 100%; height: 320px; border: 1px solid #aaa; }
+form.register fieldset { border: 1px solid #bbb; margin-bottom: 16px; padding: 14px; background: #fffdf6; }
+form.register legend { font-weight: bold; padding: 0 8px; }
+form.register label { display: block; font-size: 14px; margin: 12px 0 4px; }
+form.register input[type="text"], form.register input[type="email"],
+form.register input[type="password"], form.register input[type="tel"],
+form.register input[type="date"], form.register input[type="number"],
+form.register select, form.register textarea {
+  width: 260px; max-width: 100%; padding: 5px 6px; border: 1px solid #999; font-family: Georgia, serif;
+}
+form.register textarea { width: 320px; height: 80px; }
+form.register .sub-group { margin: 12px 0 4px; padding: 10px 12px; }
+form.register .sub-group legend { font-size: 14px; }
+form.register input:focus-visible, form.register select:focus-visible,
+form.register textarea:focus-visible { outline: 3px solid #0f7a09; outline-offset: 1px; }
+form.register .inline { display: inline-block; margin-right: 12px; font-weight: normal; }
+form.register .inline input { width: auto; }
+.hint { font-size: 12px; color: #777; }
+.required { color: #b00; }
+.form-actions { margin-top: 6px; display: flex; gap: 8px; }
+.form-actions .btn { font-size: 14px; }
+#footer, .site-footer { border-top: 1px solid #ffe6bc; margin-top: 18px; padding: 28px 0 10px; clear: both; }
+#featured, .footer-grid { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; justify-content: space-between; }
+#featured li, .footer-grid li, .footer-grid section { flex: 1; font-size: 13px; color: #593e0f; line-height: 1.6; text-align: justify; }
+.foot-icon {
+  width: 64px; height: 64px; border-radius: 50%; background: #a67c3a; color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 12px;
+}
+#footnote, .copyright { text-align: center; font-size: 11px; color: #8a6a2f; border-top: 4px solid #d6ae6a; margin-top: 22px; padding: 14px; }
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { left: 8px; top: 8px; background: #fff; padding: 8px; z-index: 99; }
+@media (max-width: 900px) {
+  #contents, .layout { flex-direction: column; }
+  #sidebar, .sidebar { width: 100%; }
+  #main, .content { width: 100%; min-height: auto; }
+  #featured, .footer-grid { flex-direction: column; }
+  #header, .site-header { flex-direction: column; align-items: center; text-align: center; }
+}
+</style>
 </head>
 <body>
 <div id="page">
