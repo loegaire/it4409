@@ -1,0 +1,391 @@
+/* ==========================================================================
+   Bài tập 4 — Xây dựng CSS cho trang "Blakletterpress"
+   HTML giữ nguyên theo đề, toàn bộ layout + responsive nằm trong file này.
+   Nguyên tắc: mobile-first (mặc định là 1 cột), dùng media query để mở rộng
+   lên tablet (2 cột) rồi desktop (3 cột).
+   Breakpoint theo slide:
+     - dưới 600px  : điện thoại  -> 1 cột
+     - 600 - 992px  : máy tính bảng -> 2 cột
+     - từ 993px     : laptop/desktop -> 3 cột / sidebar
+   ========================================================================== */
+
+/* ---------- 1. Biến dùng chung & reset ---------- */
+:root {
+    --mau-nen: #f6f4ef;
+    --mau-nen-the: #ffffff;
+    --mau-chu: #2f2b26;
+    --mau-chu-mo: #6f675d;
+    --mau-diem: #8a6d3b;
+    --mau-vien: #e3ddd1;
+    --do-dai-chu: clamp(16px, 0.5vw + 15px, 18px);
+    --khoang-cach: clamp(16px, 2vw, 28px);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: var(--do-dai-chu);
+    line-height: 1.65;
+    color: var(--mau-chu);
+    background-color: var(--mau-nen);
+    background-image: linear-gradient(180deg, #fffdf9 0%, var(--mau-nen) 260px);
+}
+
+img {
+    max-width: 100%;   /* ảnh không bao giờ tràn khung cha */
+    height: auto;      /* giữ đúng tỉ lệ khi co lại */
+    display: block;
+}
+
+h1, h2, h3 {
+    line-height: 1.25;
+    color: var(--mau-chu);
+}
+
+a {
+    color: var(--mau-diem);
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--mau-chu);
+}
+
+/* ---------- 2. Khung chung ---------- */
+main,
+.sidebar,
+.site-footer {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: var(--khoang-cach);
+}
+
+main {
+    padding-block: var(--khoang-cach) 0;
+}
+
+section {
+    margin-bottom: calc(var(--khoang-cach) * 1.6);
+}
+
+/* ---------- 3. Header + thanh điều hướng ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 20px;
+    padding: 14px var(--khoang-cach);
+    background: var(--mau-nen-the);
+    border-bottom: 4px solid var(--mau-diem);
+}
+
+.site-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--mau-chu);
+}
+
+.tagline {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--mau-chu-mo);
+}
+
+.main-nav {
+    margin-left: auto;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav a {
+    display: block;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: background-color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    background-color: var(--mau-nen);
+    text-decoration: underline;
+}
+
+/* ---------- 4. Bố cục: nội dung + sidebar ---------- */
+.layout {
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+main article figure {
+    margin: 0 0 var(--khoang-cach);
+}
+
+main article figure img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+figcaption {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--mau-chu-mo);
+    padding-top: 6px;
+}
+
+/* ---------- 5. Danh sách giá trị (mặc định 1 cột trên mobile) ---------- */
+.value-list,
+.team-list,
+.footer-cols {
+    display: grid;
+    gap: var(--khoang-cach);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.value-card,
+.member,
+.footer-cols > li {
+    background: var(--mau-nen-the);
+    border: 1px solid var(--mau-vien);
+    border-radius: 10px;
+    padding: var(--khoang-cach);
+}
+
+.value-card h3,
+.member h3,
+.footer-cols h3 {
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: var(--mau-diem);
+}
+
+.value-card p,
+.member p,
+.footer-cols p {
+    margin: 0;
+    color: var(--mau-chu-mo);
+}
+
+.member {
+    text-align: center;
+}
+
+.member img {
+    width: 100%;
+    max-width: 180px;
+    margin-inline: auto;
+    border-radius: 50%;
+}
+
+/* ---------- 6. Form liên hệ ---------- */
+.contact-form {
+    max-width: 480px;
+    padding: var(--khoang-cach);
+    background: var(--mau-nen-the);
+    border: 1px solid var(--mau-vien);
+    border-radius: 10px;
+}
+
+.contact-form label {
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font: inherit;
+    color: inherit;
+    background: var(--mau-nen);
+    border: 1px solid var(--mau-vien);
+    border-radius: 8px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--mau-diem);
+    outline-offset: 1px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px 18px;
+    font: inherit;
+    font-weight: 700;
+    color: #fff;
+    background: var(--mau-diem);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    filter: brightness(1.1);
+}
+
+/* ---------- 7. Sidebar ---------- */
+.sidebar {
+    margin-bottom: calc(var(--khoang-cach) * 1.6);
+    padding-block: var(--khoang-cach);
+    background: var(--mau-nen-the);
+    border: 1px solid var(--mau-vien);
+    border-radius: 10px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.sidebar .recent {
+    margin: 0 0 var(--khoang-cach);
+    padding-left: 20px;
+}
+
+.sidebar .recent li {
+    margin-bottom: 8px;
+}
+
+/* ---------- 8. Footer ---------- */
+.site-footer {
+    padding-block: var(--khoang-cach);
+    background: var(--mau-chu);
+    color: #e8e2d8;
+}
+
+.footer-cols > li {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.footer-cols h3 {
+    color: #fff;
+}
+
+.footer-cols p {
+    color: #cfc7ba;
+}
+
+.copyright {
+    margin: var(--khoang-cach) 0 0;
+    text-align: center;
+    color: #a79e91;
+}
+
+/* ==========================================================================
+   9. Media queries
+   ========================================================================== */
+
+/* Điện thoại (< 600px): giữ 1 cột, thu gọn khoảng cách và chữ cho dễ đọc */
+@media (max-width: 599px) {
+    .site-header {
+        padding-block: 10px;
+    }
+
+    .main-nav {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-nav ul {
+        justify-content: space-between;
+        gap: 4px 8px;
+    }
+
+    .main-nav a {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+    }
+
+    .contact-form {
+        padding: 16px;
+    }
+}
+
+/* Tablet (600px - 992px): 2 cột cho các danh sách, sidebar xuống dưới nội dung */
+@media (min-width: 600px) {
+    .value-list,
+    .team-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .member:last-child,
+    .value-card:last-child {
+        grid-column: 1 / -1;   /* phần tử lẻ chiếm nguyên hàng cho cân đối */
+    }
+}
+
+/* Desktop (>= 993px): 3 cột + sidebar nằm bên phải nội dung */
+@media (min-width: 993px) {
+    .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+        gap: calc(var(--khoang-cach) * 1.5);
+        align-items: start;
+    }
+
+    .value-list,
+    .team-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .value-card:last-child,
+    .member:last-child {
+        grid-column: auto;      /* bỏ chiếm nguyên hàng khi đã đủ 3 cột */
+    }
+
+    .footer-cols {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 96px;              /* dính ngay dưới thanh header sticky */
+        margin-bottom: 0;
+    }
+}
+
+/* Màn hình rất rộng: giới hạn bề ngang để dòng chữ không quá dài */
+@media (min-width: 1200px) {
+    main,
+    .sidebar,
+    .site-footer,
+    .layout {
+        max-width: 1180px;
+    }
+}
+
+/* Người dùng giảm chuyển động thì bỏ hiệu ứng cuộn mượt */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
